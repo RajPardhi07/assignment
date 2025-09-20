@@ -83,7 +83,6 @@ function timelineTwo() {
             pin: true,
             scrub: 1,
             end: "+=" + (window.innerHeight * 9),
-            markers: true
         }
     })
 
@@ -126,17 +125,230 @@ function timelineTwo() {
             delay: -1.4,
             ease: Power1
         })
-        // .to(".stop-boxes1", {
-        //     top:"50%",
-        //     opacity:1,
-        //     duration: 1,
-        //     ease: Power1,
+        .to(".stop-box1", {
+            marginTop: "0px",
+            ease: Power1,
+            delay: -0.2
+        }, "go")
+        .to(".stop-box2", {
+            marginTop: "0px",
+            ease: Power1,
+            delay: 0.2,
+        }, "go")
+        .to(".stop-box3", {
+            marginTop: "0px",
+            ease: Power1,
+            delay: 0.3,
 
-        // })
+        }, "go")
+        .to(".stop-box4", {
+            marginTop: "0px",
+            ease: Power1,
+            delay: 0.4,
+
+        }, "go")
+        .to(".stop-box5", {
+            marginTop: "0px",
+            ease: Power1,
+            delay: 0.5,
+
+        }, "go")
+
+        .to(".inner-stop-box1", {
+            marginLeft: "175px",
+            ease: Power1,
+            duration: 0.5
+        }, "ww")
+        .to(".inner-stop-box2", {
+            marginLeft: "106px",
+            ease: Power1,
+            duration: 1
+
+        }, "ww")
+
+        .to(".inner-stop-box3", {
+            marginLeft: "193px",
+            ease: Power1,
+            duration: 0.5
+        }, "ww")
+        .to(".inner-stop-box4", {
+            marginLeft: "122px",
+            ease: Power1,
+            duration: 1
+
+        }, "ww")
+
+        .to(".inner-stop-box5", {
+            marginLeft: "193px",
+            ease: Power1,
+            duration: 0.5
+        }, "ww")
+        .to(".inner-stop-box6", {
+            marginLeft: "122px",
+            ease: Power1,
+            duration: 1
+
+        }, "ww")
+
+        .to(".inner-stop-box7", {
+            marginLeft: "193px",
+            ease: Power1,
+            duration: 0.5
+        }, "ww")
+        .to(".inner-stop-box8", {
+            marginLeft: "122px",
+            ease: Power1,
+            duration: 1
+
+        }, "ww")
+
+        .to(".inner-stop-box9", {
+            marginLeft: "196px",
+            ease: Power1,
+            duration: 0.5
+        }, "ww")
+        .to(".inner-stop-box10", {
+            marginLeft: "126px",
+            ease: Power1,
+            duration: 1
+
+        }, "ww")
+
+
+
 }
+
+function timelineThree() {
+    gsap.set(".prismText h1:nth-child(1)", { x: "-50%", opacity: 1 });
+    gsap.set(".prismText h1:nth-child(2)", { x: "50%", opacity: 1 });
+    gsap.set(".prismText h1:nth-child(3)", { x: "-50%", opacity: 1 });
+    var tl4 = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#third",
+            start: "top center",
+            // end: "bottom center",
+            end: "+=" + (window.innerHeight * 5),
+
+            scrub: 1,
+            onUpdate: self => {
+                // Optional: Add any additional effects based on scroll progress
+                console.log("Scroll progress:", self.progress);
+            }
+        }
+    })
+
+    tl4.to("#circularImg", {
+        rotation: 360,
+        duration: 2,
+        ease: "none",
+    })
+        .to(".horizontal-text h2", {
+            x: "-150%",
+            duration: 1,
+            ease: "none",
+        }, 0)
+
+        .to(".prismText h1:nth-child(1)", {
+            x: "0%",
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+        }, 0.4)
+        .to(".prismText h1:nth-child(2)", {
+            x: "0%",
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+        }, 0.6)
+        .to(".prismText h1:nth-child(3)", {
+            x: "0%",
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+        }, 0.8)
+
+
+}
+
+var tl3 = gsap.timeline();
+tl3.to(".dark-point", {
+    x: 45,
+    ease: Power1,
+    repeat: -0.5,
+    yoyo: true,
+    duration: 1
+}, "po")
+
+    .to(".white-point", {
+        x: -45,
+        repeat: -0.5,
+        yoyo: true,
+        ease: Power1,
+        duration: 1
+    }, "po")
+
+
+
+function MouseHover() {
+    let body = document.querySelector("body")
+    let hex1 = document.querySelector(".hex1");
+    let hex2 = document.querySelector(".hex2");
+    let hex3 = document.querySelector(".hex3");
+
+    let colorChnage = document.querySelector("#colorChnage");
+
+    hex1.addEventListener("mouseenter", function () {
+        gsap.to(body, {
+            backgroundColor: "rgba(173, 216, 230, 0.637)",
+            duration: 1,
+            ease: Power1,
+
+        })
+    })
+
+    hex1.addEventListener("mouseleave", function () {
+        gsap.to(body, {
+            backgroundColor: "transparent",
+            duration: 1,
+            ease: Power1,
+
+        })
+    })
+
+    hex2.addEventListener("mouseenter", function () {
+        gsap.to(body, {
+            backgroundColor: "rgb(157 76 99)",
+            duration: 1
+        })
+    })
+
+    hex2.addEventListener("mouseleave", function () {
+        gsap.to(body, {
+            backgroundColor: "transparent",
+            duration: 1
+        })
+    })
+
+    colorChnage.addEventListener("mouseenter", function () {
+        gsap.to(body, {
+            backgroundColor: "hsl(250deg 16.67% 49.41%)",
+            duration: 1
+        })
+    })
+
+    colorChnage.addEventListener("mouseleave", function () {
+        gsap.to(body, {
+            backgroundColor: "transparent",
+            duration: 1
+        })
+    })
+}
+
 
 
 window.addEventListener("DOMContentLoaded", function () {
     timelineOne();
     timelineTwo();
+    timelineThree();
+    MouseHover();
 })
